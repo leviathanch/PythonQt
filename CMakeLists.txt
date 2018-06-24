@@ -62,26 +62,24 @@ endif(PythonQt_Qt5)
 # associated with the Qt version being used.
 
 set(generated_cpp_suffix "_${QT_VERSION_MAJOR}${QT_VERSION_MINOR}")
-if("${generated_cpp_suffix}" STREQUAL "_510")
+if("${generated_cpp_suffix}" STREQUAL "_511")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_59")
+elseif("${generated_cpp_suffix}" STREQUAL "_510")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_58")
+elseif("${generated_cpp_suffix}" STREQUAL "_59")
+	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
+elseif("${generated_cpp_suffix}" STREQUAL "_58")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.8
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_57")
+elseif("${generated_cpp_suffix}" STREQUAL "_57")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.7
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_55")
+elseif("${generated_cpp_suffix}" STREQUAL "_55")
 	set(generated_cpp_suffix "_54") # Also use 5.4 wrappers for 5.5
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_51" OR "${generated_cpp_suffix}" STREQUAL "_52")
+elseif("${generated_cpp_suffix}" STREQUAL "_51" OR "${generated_cpp_suffix}" STREQUAL "_52")
 	set(generated_cpp_suffix "_50") # Also use 5.0 wrappers for 5.1.x and 5.2.x version
-endif()
-if("${generated_cpp_suffix}" STREQUAL "_46")
+elseif("${generated_cpp_suffix}" STREQUAL "_46")
 	set(generated_cpp_suffix "_47") # Also use 4.7 wrappers for 4.6.x version
+else()
+	message(FATAL_ERROR "Unknown Qt version: ${generated_cpp_suffix} !!!")
 endif()
 
 set(WEBKIT_AVAILABLE ON)
