@@ -1,8 +1,10 @@
 find_package(Qt5Core REQUIRED)
+find_package(Qt5Widgets REQUIRED)
 
 # aliases
 macro(qt_use_modules)
-  qt5_use_modules(${ARGN})
+	#qt5_use_modules(${ARGN})
+	target_link_libraries(${ARGN} Qt5::Core Qt5::Widgets)
 endmacro()
 
 macro(qt_wrap_cpp)
