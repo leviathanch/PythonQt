@@ -62,7 +62,9 @@ endif(PythonQt_Qt5)
 # associated with the Qt version being used.
 
 set(generated_cpp_suffix "_${QT_VERSION_MAJOR}${QT_VERSION_MINOR}")
-if("${generated_cpp_suffix}" STREQUAL "_511")
+if("${generated_cpp_suffix}" STREQUAL "_512")
+	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
+elseif("${generated_cpp_suffix}" STREQUAL "_511")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
 elseif("${generated_cpp_suffix}" STREQUAL "_510")
 	set(generated_cpp_suffix "_56") # Also use 5.6 wrappers for 5.9
